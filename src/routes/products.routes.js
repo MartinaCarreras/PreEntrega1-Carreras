@@ -27,6 +27,11 @@ router.put('/:pid', ( req, res )=>{
     res.send(newManager.getProductById(req.params.pid));
 });
 
+router.delete('/:pid', ( req, res )=>{
+    newManager.deleteProduct(req.params.pid);
+    res.status(200).send(`Has eliminado el producto con id ${req.params.pid}`)
+})
+
 router.get('/carts', ( req, res )=>{
     res.status(200).send({payload: 'Cart'})
 });
